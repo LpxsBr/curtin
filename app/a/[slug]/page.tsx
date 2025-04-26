@@ -18,6 +18,10 @@ export default async function redirectioner({params}: PageProps) {
 
     console.log({data});
 
+    if(String(data[0].url).includes('http')){
+        return redirect(data[0].url)
+    }
+
     if(Array.from(data).length > 0){
         return redirect('https://'+data[0].url)
     }
