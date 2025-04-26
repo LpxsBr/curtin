@@ -5,14 +5,16 @@ import Link from "@/models/Link";
 import { redirect } from "next/navigation";
 
 type PageProps = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
   };
   
 export default async function redirectioner({params}: PageProps) {
     
     await connection();
 
-    let data = await Link.find({ ['slug']: params.slug })
+    const {slug} = await params;
+
+    let data = await Link.find({ ['slug']: slug })
 
     console.log({data});
 
