@@ -8,4 +8,4 @@ const LinkSchema = new Schema({
     }
 })
 
-export default mongoose.models.Item || mongoose.model('Item', LinkSchema);
+export default mongoose.models.Link || mongoose.model('Link', LinkSchema);
