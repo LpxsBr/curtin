@@ -75,7 +75,10 @@ export default function Home() {
         </div>
       }
 
-      Acessos: {accessQuantity}
+      <br />
+      
+      <div>Acessos: <span className="badge badge-secondary">{accessQuantity}</span></div>
+      <div className="mt-5"><a href="https://github.com/LpxsBr" target="_blank" rel="noopener noreferrer">@LpxsBr</a></div>
     </div>
 
   );
