@@ -52,7 +52,7 @@ export default function Home() {
   return (
 
     <div className="container py-5 d-flex flex-column align-items-center justify-content-center gap-3">
-      <h1>Encurte de graça e use enquanto eu existir xD</h1>
+      <h1>42t 🚀 - Encurte de graça e use enquanto eu existir xD</h1>
       <div className="row justify-content-center mb-4 w-100">
         <div className="col-md-8 d-flex">
           <input type="text" id="linkInput" className="form-control form-control-lg me-2" placeholder="Cole seu link aqui..." onChange={(e) => setUrl(e.target.value)} value={url} />
