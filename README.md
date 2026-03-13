@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔗 42T - Link Shortener
 
-## Getting Started
+O **42T** é um encurtador de links simples que permite transformar URLs
+longas em links curtos de forma rápida.\
+O projeto também oferece uma **API pública** para encurtamento
+automático via requisições HTTP.
 
-First, run the development server:
+------------------------------------------------------------------------
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 🚀 Funcionalidades
+
+-   Encurtamento de URLs
+-   Redirecionamento automático
+-   Interface web para criação de links
+-   API para integração com outros sistemas
+
+------------------------------------------------------------------------
+
+# 🌐 Site
+
+Acesse o encurtador:
+
+https://42t.vercel.app
+
+No site você pode:
+
+1.  Colar uma URL
+2.  Gerar um link encurtado
+3.  Copiar o link gerado
+
+------------------------------------------------------------------------
+
+# 🔌 API
+
+A API permite criar links curtos via requisição HTTP.
+
+## Endpoint
+
+GET /api/criar?link=URL
+
+## Exemplo de requisição
+
+https://42t.vercel.app/api/criar?link=https://github.com/LpxsBr/curtin/tree/main
+
+## Exemplo de resposta
+
+``` json
+{
+  "status": 1,
+  "url": "https://42t.vercel.app/a/OekXw9T6OQ"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+------------------------------------------------------------------------
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 🧪 Exemplo com curl
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+``` bash
+curl "https://42t.vercel.app/api/criar?link=https://google.com"
+```
 
-## Learn More
+------------------------------------------------------------------------
 
-To learn more about Next.js, take a look at the following resources:
+# 📌 Roadmap
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Funcionalidades planejadas para próximas versões:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   [x] Site do encurtador
+-   [x] API para encurtamento de links
+-   [ ] Geração de QR Code para links encurtados
+-   [ ] Painel de gerenciamento de links
 
-## Deploy on Vercel
+------------------------------------------------------------------------
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 🛠 Possíveis usos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   Compartilhamento rápido de links
+-   Integração com bots e automações
+-   Sistemas que precisam gerar links curtos
+-   Campanhas de marketing
+
+# 🏆 Checkpoints
+
+-   [x] 10 acessos
+-   [ ] 100 acessos
+-   [ ] 1000 acessos
