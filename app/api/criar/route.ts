@@ -1,5 +1,20 @@
 import { createLink } from '@/app/actions';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+function corsResponse(body: any = null, status = 200) {
+  return NextResponse.json(body, {
+    status,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    },
+  });
+}
+
+export async function OPTIONS() {
+  return corsResponse(null, 204);
+}
 
 export async function GET(request: NextRequest) {
 
