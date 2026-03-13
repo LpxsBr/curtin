@@ -13,7 +13,7 @@ function corsResponse(body: any = null, status = 200) {
 }
 
 export async function OPTIONS() {
-  return corsResponse(null, 204);
+  return corsResponse(null, 200);
 }
 
 export async function GET(request: NextRequest) {
