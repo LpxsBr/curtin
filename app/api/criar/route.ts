@@ -7,11 +7,10 @@ function corsResponse(body: any = null, status = 200) {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, socket-token, Accept, Origin, X-Requested-With, X-Header-One, X-Total-Count",
     },
   });
 }
-
 export async function OPTIONS() {
   return corsResponse(null, 200);
 }
