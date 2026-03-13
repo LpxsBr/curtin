@@ -15,7 +15,9 @@ export default async function redirectioner({params}: PageProps) {
 
     const {slug} = await params;
 
-    let data = await Link.find({ ['slug']: slug })
+    let slug_t = slug.replace(/"/g, '');
+
+    let data = await Link.find({ ['slug']: slug_t })
 
     console.log({data});
 
