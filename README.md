@@ -38,9 +38,12 @@ A API permite criar links curtos via requisição HTTP.
 
 GET /api/criar?link=URL
 
+opcional para gerar qr code
+GET /api/criar?link=URL&qr=1
+
 ## Exemplo de requisição
 
-https://42t.vercel.app/api/criar?link=https://github.com/LpxsBr/curtin/tree/main
+https://42t.vercel.app/api/criar?link=https://github.com/LpxsBr/curtin/tree/main&qr=1
 
 ## Exemplo de resposta
 
@@ -49,6 +52,13 @@ https://42t.vercel.app/api/criar?link=https://github.com/LpxsBr/curtin/tree/main
   "status": 1,
   "url": "https://42t.vercel.app/a/OekXw9T6OQ"
 }
+```
+
+com &qr=1
+
+
+``` json
+QR Code
 ```
 
 ------------------------------------------------------------------------
@@ -67,7 +77,8 @@ Funcionalidades planejadas para próximas versões:
 
 -   [x] Site do encurtador
 -   [x] API para encurtamento de links
--   [ ] Geração de QR Code para links encurtados
+-   [x] Geração de QR Code para links encurtados
+-   [x] Reaproveitamento de links encurtados (reduz carga de armazenamento do banco)
 -   [ ] Painel de gerenciamento de links
 
 ------------------------------------------------------------------------

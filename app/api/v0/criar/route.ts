@@ -1,4 +1,5 @@
 import { createLink_v2 } from '@/app/actions';
+import qr from '@/lib/qr';
 import { NextRequest, NextResponse } from 'next/server';
 
 function corsResponse(body: any = null, status = 200) {
@@ -16,11 +17,23 @@ function corsResponse(body: any = null, status = 200) {
 export async function OPTIONS() {
   return corsResponse(null, 200);
 }
+    
+async function qrCodeResponse(link: string) {
+
+    const buffer = await qr(link, 300);
+
+    return new NextResponse(buffer, {
+        headers: {
+            "content-type": "image/png"
+        },
+    });
+}
 
 export async function GET(request: NextRequest) {
 
     try {
         const link = request.nextUrl.searchParams.get('link');
+        const qrCode = request.nextUrl.searchParams.get('qr');
         
         const newLink = await createLink_v2(String(link ?? '')); 
 
@@ -28,6 +41,13 @@ export async function GET(request: NextRequest) {
 
         if(String(newLink.slug) == 'undefined' || String(newLink.slug) == ''){
             throw new Error('Slug não retornada');
+        }
+
+        
+        if(qrCode && qrCode === '1'){
+
+            return await qrCodeResponse(redirectUrl ?? '');
+
         }
 
         return new Response(JSON.stringify({
