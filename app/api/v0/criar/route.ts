@@ -35,10 +35,10 @@ export async function GET(request: NextRequest) {
         const link = request.nextUrl.searchParams.get('link');
         const qrCode = request.nextUrl.searchParams.get('qr');
 
-        if(!link){
+        if(!link || link.trim() == ''){
             return new Response(JSON.stringify({
                 status: 0,
-                message: 'Parâmetro "link" é obrigatório.'
+                message: 'Parâmetro "link" é obrigatório e não pode estar vazio.'
             }), {
                 headers: { 'Content-Type': 'application/json' },
             });
