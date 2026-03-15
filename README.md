@@ -93,5 +93,5 @@ Funcionalidades planejadas para próximas versões:
 # 🏆 Checkpoints
 
 -   [x] 10 acessos
--   [ ] 100 acessos
+-   [x] 100 acessos
 -   [ ] 1000 acessos
