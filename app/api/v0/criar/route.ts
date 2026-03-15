@@ -1,4 +1,4 @@
-import { createLink_v2 } from '@/app/actions';
+import { createLink_v2, storeAccess } from '@/app/actions';
 import qr from '@/lib/qr';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -32,6 +32,9 @@ async function qrCodeResponse(link: string) {
 export async function GET(request: NextRequest) {
 
     try {
+
+        await storeAccess();
+
         const link = request.nextUrl.searchParams.get('link');
         const qrCode = request.nextUrl.searchParams.get('qr');
 
