@@ -51,6 +51,42 @@ export async function createLink(url: string): Promise<creation> {
     }
 }
 
+
+export async function createLink_v2(url: string): Promise<creation> {
+    try {
+        await connection();
+
+        let data = await Link.find({ ['url']: url });
+
+        if (data.length > 0) {
+            return {
+                status: true,
+                message: 'Sucesso, Link já existe',
+                slug: data[0].slug
+            }
+        }
+
+        let slug = await generateSlug();
+        Link.create({
+            url,
+            slug
+        })
+
+        return {
+            status: true,
+            message: 'sucesso',
+            slug: slug
+        }
+
+    } catch (error) {
+        return {
+            status: false,
+            message: 'falha ao gravar'
+        }
+
+    }
+}
+
 export async function storeAccess(): Promise<{value: number}> {
     try {
         await connection();
