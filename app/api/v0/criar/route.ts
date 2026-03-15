@@ -34,6 +34,15 @@ export async function GET(request: NextRequest) {
     try {
         const link = request.nextUrl.searchParams.get('link');
         const qrCode = request.nextUrl.searchParams.get('qr');
+
+        if(!link){
+            return new Response(JSON.stringify({
+                status: 0,
+                message: 'Parâmetro "link" é obrigatório.'
+            }), {
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
         
         const newLink = await createLink_v2(String(link ?? '')); 
 
