@@ -36,14 +36,14 @@ A API permite criar links curtos via requisição HTTP.
 
 ## Endpoint
 
-GET /api/criar?link=URL
+GET /api/v0/criar?link=URL
 
 opcional para gerar qr code
-GET /api/criar?link=URL&qr=1
+GET /api/v0/criar?link=URL&qr=1
 
 ## Exemplo de requisição
 
-https://42t.vercel.app/api/criar?link=https://github.com/LpxsBr/curtin/tree/main&qr=1
+https://42t.vercel.app/api/v0/criar?link=https://github.com/LpxsBr/curtin/tree/main&qr=1
 
 ## Exemplo de resposta
 
@@ -66,7 +66,7 @@ QR Code
 # 🧪 Exemplo com curl
 
 ``` bash
-curl "https://42t.vercel.app/api/criar?link=https://google.com"
+curl "https://42t.vercel.app/api/v0/criar?link=https://google.com"
 ```
 
 ------------------------------------------------------------------------
