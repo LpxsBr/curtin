@@ -1,6 +1,6 @@
 'use client'
 
-import {BiCopyAlt, BiCheck} from "react-icons/bi";
+import { BiCopyAlt, BiCheck } from "react-icons/bi";
 import { createLink, creation, storeAccess } from "./actions";
 import { useEffect, useState } from "react";
 
@@ -10,12 +10,12 @@ export default function Home() {
   const [slug, setSlug] = useState('');
   const [isCopying, setCopying] = useState<boolean>(false);
   const [accessQuantity, setAccessQuantity] = useState<number>(1);
-  
+
   useEffect(() => {
     let count = async () => {
       const { value } = await storeAccess();
-      console.log({value});
-      
+      console.log({ value });
+
 
       setTimeout(() => {
         setAccessQuantity(value)
@@ -31,17 +31,17 @@ export default function Home() {
     if (data.status == false) {
       alert(data.message)
     }
-    
+
     if (data.status == true) {
       setSlug(window.location.href + 'a/' + String(data.slug))
       setUrl('');
     }
-    
+
   }
 
   const copy = (data: string = '') => {
     setCopying(true);
-    if(typeof data == 'string' && data != ''){
+    if (typeof data == 'string' && data != '') {
       navigator.clipboard.writeText(data);
     }
     setTimeout(() => {
@@ -52,9 +52,9 @@ export default function Home() {
   return (
 
     <div className="container py-5 d-flex flex-column align-items-center justify-content-center gap-3">
-      <h1>42t 🚀 - Encurte de graça e use enquanto eu existir xD</h1>
+      <h1 className="app-title">42t 🚀 - Encurte de graca e use enquanto eu existir xD</h1>
       <div className="row justify-content-center mb-4 w-100">
-        <div className="col-md-8 d-flex">
+        <div className="col-md-8 d-flex panel p-3">
           <input type="text" id="linkInput" className="form-control form-control-lg me-2" placeholder="Cole seu link aqui..." onChange={(e) => setUrl(e.target.value)} value={url} />
           <button type="button" onClick={save} className="btn btn-secondary btn-lg" id="encurtarBtn">Encurtar</button>
         </div>
@@ -65,20 +65,25 @@ export default function Home() {
         slug != '' &&
         <div id="resultadoArea" className="row justify-content-center w-100">
           <div className="col-md-8">
-            <div className="input-group" onClick={() => copy(slug)}>
-              <input type="text" id="linkEncurtado" className="form-control form-control-lg" value={slug} readOnly/>
-                <button className={'btn btn-outline-secondary'+(isCopying ? 'btn-success' : '')} type="button" id="copiarBtn">
-                  {isCopying ? <BiCheck /> : <BiCopyAlt />}
-                </button>
+            <div className="input-group panel p-2" onClick={() => copy(slug)}>
+              <input type="text" id="linkEncurtado" className="form-control form-control-lg" value={slug} readOnly />
+              <button className={'btn btn-outline-secondary' + (isCopying ? 'btn-success' : '')} type="button" id="copiarBtn">
+                {isCopying ? <BiCheck /> : <BiCopyAlt />}
+              </button>
             </div>
           </div>
         </div>
       }
 
       <br />
-      
-      <div>Acessos: <span className="badge" style={{ backgroundColor: '#252525' }}>{accessQuantity}</span></div>
-      <div className="mt-5"><a href="https://github.com/LpxsBr" target="_blank" rel="noopener noreferrer">@LpxsBr</a></div>
+
+      <div>Acessos: <span className="badge badge-access">{accessQuantity}</span></div>
+
+      <div className="mt-5 d-flex flex-row align-items-center justify-content-center gap-4 home-footer-links">
+        <div className="mt-5"><a href="https://github.com/LpxsBr" target="_blank" rel="noopener noreferrer">@LpxsBr</a></div>
+        <div className="mt-5"><a href="/docs" target="_blank" rel="noopener noreferrer">Docs</a></div>
+      </div>
+
     </div>
 
   );

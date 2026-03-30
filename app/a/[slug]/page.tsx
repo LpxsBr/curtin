@@ -34,6 +34,6 @@ export default async function redirectioner({params}: PageProps) {
     
     
     return (
-        <div>Opa, site não encontrado! <a href="/">Encurtar links</a> </div>
+        <div className="panel not-found-box">Opa, site nao encontrado! <a href="/">Encurtar links</a> </div>
     )
 }

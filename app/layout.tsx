@@ -28,7 +28,7 @@ export default function RootLayout({
         
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} d-flex flex-column align-items-center justify-content-center`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} app-body`}>
         {children}
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"/>
       <script
